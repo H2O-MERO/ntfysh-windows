@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using Newtonsoft.Json;
+using ntfysh_client.Notifications;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
@@ -6,8 +9,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using ntfysh_client.Notifications;
 
 namespace ntfysh_client
 {
@@ -18,6 +19,8 @@ namespace ntfysh_client
         private bool _trueExit;
         private NotificationDialog _notificationDialog;
 
+        private readonly Dictionary<string, string> _toastMessages = new Dictionary<string, string>();
+
         public MainForm(NotificationListener notificationListener, bool startInTray = false)
         {
             _notificationListener = notificationListener;
@@ -25,10 +28,37 @@ namespace ntfysh_client
             _notificationListener.OnNotificationReceive += OnNotificationReceive;
             _notificationListener.OnConnectionMultiAttemptFailure += OnConnectionMultiAttemptFailure;
             _notificationListener.OnConnectionCredentialsFailure += OnConnectionCredentialsFailure;
-            
+
+            ToastNotificationManagerCompat.OnActivated += OnToastActivated;
+
             InitializeComponent();
         }
-        
+
+        private void OnToastActivated(ToastNotificationActivatedEventArgsCompat e)
+        {
+            var args = ToastArguments.Parse(e.Argument);
+            if (args.TryGetValue("action", out string action) && action == "copy")
+            {
+                if (args.TryGetValue("tag", out string tag) && _toastMessages.TryGetValue(tag, out string message))
+                {
+                    try
+                    {
+                        Clipboard.SetText(message);
+                    }
+                    finally
+                    {
+                        _toastMessages.Remove(tag); // 移除已复制的消息
+                    }
+                }
+            }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            notifyIcon.Dispose();
+            ToastNotificationManagerCompat.OnActivated -= OnToastActivated;
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoadSettings();
@@ -75,7 +105,26 @@ namespace ntfysh_client
 
             if (Program.Settings.NotificationsMethod == SettingsModel.NotificationsType.NativeWindows)
             {
-                notifyIcon.ShowBalloonTip((int)TimeSpan.FromSeconds((double)Program.Settings.Timeout).TotalMilliseconds, finalTitle, e.Message, priorityIcon);
+                //notifyIcon.ShowBalloonTip((int)TimeSpan.FromSeconds((double)Program.Settings.Timeout).TotalMilliseconds, finalTitle, e.Message, priorityIcon);
+                //use toast for pushing cotifications
+                string tag = Guid.NewGuid().ToString();
+                _toastMessages[tag] = e.Message; // saved for copy
+
+                new ToastContentBuilder()
+                    .AddText(finalTitle)
+                    .AddText(e.Message)
+                    .AddButton(new ToastButton()
+                        .SetContent("复制内容")
+                        .AddArgument("action", "copy")
+                        .AddArgument("tag", tag)
+                        .SetBackgroundActivation())
+                    .SetToastDuration(ToastDuration.Short)
+                    .SetToastScenario(priorityIcon == ToolTipIcon.Error ? ToastScenario.Alarm : ToastScenario.Default)
+                    .Show(toast =>
+                    {
+                        double timeoutSeconds = (double)Convert.ToDecimal(Program.Settings.Timeout);
+                        toast.ExpirationTime = DateTime.Now.AddSeconds(timeoutSeconds);
+                    });
             }
             else
             {
@@ -409,11 +458,7 @@ namespace ntfysh_client
             }
         }
 
-        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            notifyIcon.Dispose();
-        }
-        
+     
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             // Let it close
