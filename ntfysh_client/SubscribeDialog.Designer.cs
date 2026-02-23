@@ -29,197 +29,193 @@ namespace ntfysh_client
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.topicId = new System.Windows.Forms.TextBox();
-            this.serverUrl = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.username = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.password = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.connectionType = new System.Windows.Forms.ComboBox();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
+            panel1 = new System.Windows.Forms.Panel();
+            button2 = new System.Windows.Forms.Button();
+            button1 = new System.Windows.Forms.Button();
+            label1 = new System.Windows.Forms.Label();
+            topicId = new System.Windows.Forms.TextBox();
+            serverUrl = new System.Windows.Forms.TextBox();
+            label2 = new System.Windows.Forms.Label();
+            username = new System.Windows.Forms.TextBox();
+            label3 = new System.Windows.Forms.Label();
+            password = new System.Windows.Forms.TextBox();
+            label4 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            connectionType = new System.Windows.Forms.ComboBox();
+            panel1.SuspendLayout();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.Control;
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 244);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(346, 51);
-            this.panel1.TabIndex = 8;
+            panel1.BackColor = System.Drawing.SystemColors.Control;
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
+            panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            panel1.Location = new System.Drawing.Point(0, 390);
+            panel1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(544, 82);
+            panel1.TabIndex = 8;
             // 
             // button2
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(153, 13);
-            this.button2.Margin = new System.Windows.Forms.Padding(12, 12, 4, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 27);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "Cancel";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            button2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            button2.Location = new System.Drawing.Point(240, 21);
+            button2.Margin = new System.Windows.Forms.Padding(19, 19, 6, 19);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(138, 43);
+            button2.TabIndex = 7;
+            button2.Text = "取消";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(247, 13);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 12, 12, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 27);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Subscribe";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            button1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            button1.Location = new System.Drawing.Point(388, 21);
+            button1.Margin = new System.Windows.Forms.Padding(6, 19, 19, 19);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(138, 43);
+            button1.TabIndex = 6;
+            button1.Text = "订阅";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 10);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 15);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Topic ID:";
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(22, 16);
+            label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(148, 24);
+            label1.TabIndex = 1;
+            label1.Text = "主题ID(Topic ID)";
             // 
             // topicId
             // 
-            this.topicId.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.topicId.Location = new System.Drawing.Point(14, 29);
-            this.topicId.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.topicId.Name = "topicId";
-            this.topicId.Size = new System.Drawing.Size(318, 23);
-            this.topicId.TabIndex = 1;
-            this.topicId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.topicId_KeyDown);
+            topicId.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            topicId.Location = new System.Drawing.Point(22, 46);
+            topicId.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            topicId.Name = "topicId";
+            topicId.Size = new System.Drawing.Size(497, 30);
+            topicId.TabIndex = 1;
+            topicId.KeyDown += topicId_KeyDown;
             // 
             // serverUrl
             // 
-            this.serverUrl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.serverUrl.Location = new System.Drawing.Point(14, 74);
-            this.serverUrl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.serverUrl.Name = "serverUrl";
-            this.serverUrl.Size = new System.Drawing.Size(318, 23);
-            this.serverUrl.TabIndex = 2;
-            this.serverUrl.Text = "wss://ntfy.sh";
-            this.serverUrl.KeyDown += new System.Windows.Forms.KeyEventHandler(this.serverUrl_KeyDown);
+            serverUrl.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            serverUrl.Location = new System.Drawing.Point(22, 118);
+            serverUrl.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            serverUrl.Name = "serverUrl";
+            serverUrl.Size = new System.Drawing.Size(497, 30);
+            serverUrl.TabIndex = 2;
+            serverUrl.Text = "wss://ntfy.sh";
+            serverUrl.KeyDown += serverUrl_KeyDown;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 55);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 15);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Server URL:";
+            label2.AutoSize = true;
+            label2.Location = new System.Drawing.Point(19, 88);
+            label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(104, 24);
+            label2.TabIndex = 3;
+            label2.Text = "服务器地址:";
             // 
             // username
             // 
-            this.username.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.username.Location = new System.Drawing.Point(14, 119);
-            this.username.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.username.Name = "username";
-            this.username.Size = new System.Drawing.Size(318, 23);
-            this.username.TabIndex = 3;
-            this.username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.username_KeyDown);
+            username.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            username.Location = new System.Drawing.Point(22, 190);
+            username.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            username.Name = "username";
+            username.Size = new System.Drawing.Size(497, 30);
+            username.TabIndex = 3;
+            username.KeyDown += username_KeyDown;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 100);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 15);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Username:";
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(19, 160);
+            label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(68, 24);
+            label3.TabIndex = 5;
+            label3.Text = "用户名:";
             // 
             // password
             // 
-            this.password.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.password.Location = new System.Drawing.Point(14, 164);
-            this.password.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.password.Name = "password";
-            this.password.Size = new System.Drawing.Size(318, 23);
-            this.password.TabIndex = 4;
-            this.password.UseSystemPasswordChar = true;
-            this.password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.password_KeyDown);
+            password.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+            password.Location = new System.Drawing.Point(22, 262);
+            password.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            password.Name = "password";
+            password.Size = new System.Drawing.Size(497, 30);
+            password.TabIndex = 4;
+            password.UseSystemPasswordChar = true;
+            password.KeyDown += password_KeyDown;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 145);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 15);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Password:";
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(19, 232);
+            label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(50, 24);
+            label4.TabIndex = 7;
+            label4.Text = "密码:";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 190);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(99, 15);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Connection Type:";
+            label5.AutoSize = true;
+            label5.Location = new System.Drawing.Point(19, 304);
+            label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(86, 24);
+            label5.TabIndex = 9;
+            label5.Text = "连接方式:";
             // 
             // connectionType
             // 
-            this.connectionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.connectionType.FormattingEnabled = true;
-            this.connectionType.Items.AddRange(new object[] {
-            "Websockets (Recommended)",
-            "Long HTTP JSON (Robust)"});
-            this.connectionType.Location = new System.Drawing.Point(14, 208);
-            this.connectionType.Name = "connectionType";
-            this.connectionType.Size = new System.Drawing.Size(318, 23);
-            this.connectionType.TabIndex = 5;
-            this.connectionType.TextChanged += new System.EventHandler(this.connectionType_TextChanged);
+            connectionType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            connectionType.FormattingEnabled = true;
+            connectionType.Items.AddRange(new object[] { "Websockets (Recommended)", "Long HTTP JSON (Robust)" });
+            connectionType.Location = new System.Drawing.Point(22, 333);
+            connectionType.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            connectionType.Name = "connectionType";
+            connectionType.Size = new System.Drawing.Size(497, 32);
+            connectionType.TabIndex = 5;
+            connectionType.SelectedIndexChanged += connectionType_SelectedIndexChanged;
+            connectionType.TextChanged += connectionType_TextChanged;
             // 
             // SubscribeDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(346, 295);
-            this.Controls.Add(this.connectionType);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.password);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.username);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.serverUrl);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.topicId);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "SubscribeDialog";
-            this.ShowIcon = false;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Subscribe to new topic";
-            this.Load += new System.EventHandler(this.SubscribeDialog_Load);
-            this.panel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.White;
+            ClientSize = new System.Drawing.Size(544, 472);
+            Controls.Add(connectionType);
+            Controls.Add(label5);
+            Controls.Add(password);
+            Controls.Add(label4);
+            Controls.Add(username);
+            Controls.Add(label3);
+            Controls.Add(serverUrl);
+            Controls.Add(label2);
+            Controls.Add(topicId);
+            Controls.Add(label1);
+            Controls.Add(panel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "SubscribeDialog";
+            ShowIcon = false;
+            ShowInTaskbar = false;
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "订阅新话题(Topic)";
+            Load += SubscribeDialog_Load;
+            panel1.ResumeLayout(false);
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 

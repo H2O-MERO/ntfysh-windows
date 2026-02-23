@@ -6,13 +6,13 @@ namespace ntfysh_client
     public partial class SubscribeDialog : Form
     {
         private readonly ListBox _notificationTopics;
-        
+
         public string TopicId => topicId.Text;
-        
+
         public string ServerUrl => serverUrl.Text;
-        
+
         public string Username => username.Text;
-        
+
         public string Password => password.Text;
 
         public string Unique => $"{topicId.Text}@{serverUrl.Text}";
@@ -196,7 +196,7 @@ namespace ntfysh_client
                 e.SuppressKeyPress = true;
             }
         }
-        
+
         private void serverUrl_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
@@ -227,6 +227,11 @@ namespace ntfysh_client
         private void connectionType_TextChanged(object sender, EventArgs e)
         {
             ReparseAddress();
+        }
+
+        private void connectionType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

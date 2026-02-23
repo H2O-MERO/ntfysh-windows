@@ -14,5 +14,10 @@ namespace ntfysh_client
         {
             DialogResult = DialogResult.OK;
         }
+
+        private void AboutBox_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
