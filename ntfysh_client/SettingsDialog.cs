@@ -33,7 +33,7 @@ namespace ntfysh_client
             set
             {
                 useNativeWindowsNotifications.Checked = value;
-                groupCustomNotificationSettings.Enabled = !value;
+                groupNativeNotification.Enabled = !value;
                 NotificationsMethod = (value) ? NotificationsType.NativeWindows : NotificationsType.CustomTray;
             }
         }
@@ -41,7 +41,8 @@ namespace ntfysh_client
         public bool UseCustomTrayNotifications
         {
             get => useCustomTrayNotifications.Checked;
-            set {
+            set
+            {
                 useCustomTrayNotifications.Checked = value;
                 groupCustomNotificationSettings.Enabled = value;
                 NotificationsMethod = (value) ? NotificationsType.NativeWindows : NotificationsType.CustomTray;
@@ -69,6 +70,17 @@ namespace ntfysh_client
         }
         #endregion
 
+        #region: Windows native notification options
+
+
+        public bool NativeNotificationsAutoCopyToClipboard
+        {
+            get => nativeNotificationAutoCopy.Checked;
+            set => nativeNotificationAutoCopy.Checked = value;
+        }
+
+        #endregion
+
         public SettingsDialog()
         {
             InitializeComponent();
@@ -88,6 +100,7 @@ namespace ntfysh_client
         private void SetNotificationsUiElements()
         {
             groupCustomNotificationSettings.Enabled = useCustomTrayNotifications.Checked;
+            //groupNativeNotification.Enabled = !useCustomTrayNotifications.Checked;
             timeoutLabel.Text = useCustomTrayNotifications.Checked ? _customNotificationsTimeout : _windowsNotificationsTimeout;
         }
 
@@ -96,7 +109,32 @@ namespace ntfysh_client
             SetNotificationsUiElements();
         }
 
-        private const string _windowsNotificationsTimeout = "Notification Toast Timeout (seconds, may be ignored by OS based on accessibility settings):";
-        private const string _customNotificationsTimeout = "Notification Toast Timeout (seconds, use 0 to require closing notification):";
+        private const string _windowsNotificationsTimeout = "通知提示超时（秒，可能因系统辅助功能设置而被忽略）:";
+        private const string _customNotificationsTimeout = "通知提示超时（秒，设为0则需手动关闭通知）:";
+
+        private void SettingsDialog_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void customNotificationsPlayWindowsNotificationAudio_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timeoutLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

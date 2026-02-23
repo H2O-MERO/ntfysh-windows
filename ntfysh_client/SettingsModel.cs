@@ -16,5 +16,6 @@
         public bool CustomTrayNotificationsShowTimeoutBar { get; set; }
         public bool CustomTrayNotificationsShowInDarkMode { get; set; }
         public bool CustomTrayNotificationsPlayDefaultWindowsSound { get; set; }
+        public bool NativeNotificationsAutoCopyToClipboard { get; set; }
     }
 }

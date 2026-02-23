@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ntfysh_client
@@ -98,6 +99,33 @@ namespace ntfysh_client
             base.SetVisibleCore(value);
         }
 
+        private void CopyToClipboard(string text)
+        {
+            try
+            {
+                Thread clipboardThread = new Thread(() =>
+                {
+                    try
+                    {
+                        Clipboard.SetText(text);
+                        Debug.WriteLine($"复制到剪贴板: {text}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"复制失败: {ex.Message}");
+                    }
+                });
+
+                clipboardThread.SetApartmentState(ApartmentState.STA);
+                clipboardThread.IsBackground = true;
+                clipboardThread.Start();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"创建复制线程失败: {ex.Message}");
+            }
+        }
+
         private void OnNotificationReceive(object sender, NotificationReceiveEventArgs e)
         {
             ToolTipIcon priorityIcon = e.Priority switch
@@ -116,8 +144,14 @@ namespace ntfysh_client
             {
                 //notifyIcon.ShowBalloonTip((int)TimeSpan.FromSeconds((double)Program.Settings.Timeout).TotalMilliseconds, finalTitle, e.Message, priorityIcon);
                 //use toast for pushing cotifications
+
                 string tag = Guid.NewGuid().ToString();
                 _toastMessages[tag] = e.Message; // saved for copy
+
+                if(Program.Settings.NativeNotificationsAutoCopyToClipboard)
+        {
+                    CopyToClipboard(e.Message);
+                }
 
                 new ToastContentBuilder()
                     .AddText(finalTitle)
